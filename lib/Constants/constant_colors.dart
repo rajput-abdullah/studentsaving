@@ -8,6 +8,6 @@ class ConstantColor {
   static const Color YELLOW = Color(0xFFFED766);
   static const Color LIGHT_YELLOW = Color(0xFFFFE8A7);
   static const Color LIGHT_BLUE = Color(0xFF76B1BA);
-  static const Color LIGHT_PINK = Color(0xFFC3979F);
+  static const Color LIGHT_PINK = Color(0xFFDDBEC3);
   static const Color WHITE = Color(0xFFFFFFFF);
 }

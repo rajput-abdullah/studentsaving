@@ -20,100 +20,167 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                flex: 1,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Stack(
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          margin: const EdgeInsets.only(top: 120),
-                          height: MediaQuery.of(context).size.height*0.15,
-                          width: MediaQuery.of(context).size.width*0.45,
-                          decoration: const BoxDecoration(
-
-                              color:  ConstantColor.LIGHT_BLUE, //new Color.fromRGBO(255, 0, 0, 0.0),
-                              borderRadius:  BorderRadius.only(
-                                  bottomRight:  Radius.circular(50.0),
-                                  topRight: Radius.circular(50.0))
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Image.asset("assets/logo.png"),
+                            ],
                           ),
-
                         ),
-                        Container(
-                          margin: const EdgeInsets.only(top: 20),
-
-                          height: MediaQuery.of(context).size.height*0.15,
-                          width: MediaQuery.of(context).size.width*0.36,
-                          decoration: const BoxDecoration(
-                              color:  ConstantColor.BLUE, //new Color.fromRGBO(255, 0, 0, 0.0),
-                              borderRadius:  BorderRadius.only(
-                                  bottomRight:  Radius.circular(50.0),
-                                  topRight: Radius.circular(50.0))
-                          ),
-
-                        ),
-                      ],
+                      ],),
+                    const Text(
+                      "CREATE AN ACCOUNT",
+                      style: TextStyle(color: Colors.black),
                     )
-                  ],),
+                  ],
+                ),
               ),
               Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Expanded(
-                      child: Container(),
-                    ),
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Image.asset("assets/logo.png"),
-                          const Text(
-                            "BUILD A BUDGET AND TRACK YOUR SAVING"
-                            ,
-                            style: TextStyle(color: ConstantColor.WHITE),
-                          )
-                        ],
-                      ),
-                    ),
-                    Expanded(
-
-                      child: Stack(
-                        children: [
-                          Container(
-                            margin: const EdgeInsets.only(top: 50),
-                            height: MediaQuery.of(context).size.height*0.15,
-                            width: MediaQuery.of(context).size.width*0.25,
-                            decoration: const BoxDecoration(
-
-                                color:  ConstantColor.LIGHT_YELLOW, //new Color.fromRGBO(255, 0, 0, 0.0),
-                                borderRadius:  BorderRadius.only(
-                                    bottomLeft:  Radius.circular(50.0),
-                                    topLeft: Radius.circular(50.0))
+                flex: 2,
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 50),
+                  child: Column(
+                    children:  [
+                      TextField(
+                        decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.only(left: 20),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(40.0),
                             ),
-
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius:  BorderRadius.circular(40.0),
+                          ),focusedBorder: OutlineInputBorder(
+                            borderRadius:  BorderRadius.circular(40.0),
                           ),
-                          Container(
-                            margin: const EdgeInsets.only(bottom:180, ),
-                            height: MediaQuery.of(context).size.height*0.15,
-                            width: MediaQuery.of(context).size.width*0.10,
-                            decoration: const BoxDecoration(
-                                color:  ConstantColor.YELLOW, //new Color.fromRGBO(255, 0, 0, 0.0),
-                                borderRadius:  BorderRadius.only(
-                                    bottomLeft:  Radius.circular(50.0),
-                                    topLeft: Radius.circular(50.0))
-                            ),
-
-                          ),
-                        ],
+                          fillColor: ConstantColor.DARK_BLUE,
+                          filled: true,
+                          hintText: "USERNAME*",
+                          hintStyle: const TextStyle(color: ConstantColor.WHITE,fontSize: 13)
+                        ),
                       ),
-                    )
-
-                  ],),
-              ),
-              Expanded(
-                child: Row(children: [
-
-                ],),
-              ),
+                      const SizedBox(height: 10),
+                      TextField(
+                        decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.only(left: 20),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(40.0),
+                            ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius:  BorderRadius.circular(40.0),
+                          ),focusedBorder: OutlineInputBorder(
+                            borderRadius:  BorderRadius.circular(40.0),
+                          ),
+                          fillColor: ConstantColor.DARK_BLUE,
+                          filled: true,
+                          hintText: "PASSWORD*",
+                          hintStyle: const TextStyle(color: ConstantColor.WHITE, fontSize: 13)
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      TextField(
+                        decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.only(left: 20),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(40.0),
+                            ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius:  BorderRadius.circular(40.0),
+                          ),focusedBorder: OutlineInputBorder(
+                            borderRadius:  BorderRadius.circular(40.0),
+                          ),
+                          fillColor: ConstantColor.DARK_BLUE,
+                          filled: true,
+                          hintText: "RETYPE PASSWORD*",
+                          hintStyle: const TextStyle(color: ConstantColor.WHITE,fontSize: 13)
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      TextField(
+                        decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.only(left: 20),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(40.0),
+                            ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius:  BorderRadius.circular(40.0),
+                          ),focusedBorder: OutlineInputBorder(
+                            borderRadius:  BorderRadius.circular(40.0),
+                          ),
+                          fillColor: ConstantColor.DARK_BLUE,
+                          filled: true,
+                          hintText: "FIRST NAME*",
+                          hintStyle: const TextStyle(color: ConstantColor.WHITE,fontSize: 13)
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      TextField(
+                        decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.only(left: 20),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(40.0),
+                            ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius:  BorderRadius.circular(40.0),
+                          ),focusedBorder: OutlineInputBorder(
+                            borderRadius:  BorderRadius.circular(40.0),
+                          ),
+                          fillColor: ConstantColor.DARK_BLUE,
+                          filled: true,
+                          hintText: "LAST NAME*",
+                          hintStyle: const TextStyle(color: ConstantColor.WHITE,fontSize: 13)
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      TextField(
+                        decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.only(left: 20),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(40.0),
+                            ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius:  BorderRadius.circular(40.0),
+                          ),focusedBorder: OutlineInputBorder(
+                            borderRadius:  BorderRadius.circular(40.0),
+                          ),
+                          fillColor: ConstantColor.DARK_BLUE,
+                          filled: true,
+                          suffixIcon: const Icon(Icons.keyboard_arrow_down_outlined, color: ConstantColor.WHITE, size: 30,),
+                          hintText: "NSCC CAMPUS*",
+                          hintStyle: const TextStyle(color: ConstantColor.WHITE,fontSize: 13)
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: MaterialButton(
+                          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+                          onPressed: (){},
+                          color: ConstantColor.YELLOW,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30)),
+                          child: const Text("SUBMIT"),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Expanded(
+                        child: TextButton(
+                          onPressed: (){},
+                          child: const Text("BY SUBMITTING THE FOLLOWING INFORMATION YOU AGREE TO THE TERMS AND CONDITIONS AND OUR PRIVACY POLICY.", style: TextStyle(    decoration: TextDecoration.underline,
+                              color: Colors.black, fontSize: 11),),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              )
             ],
           )
       ),
