@@ -2,7 +2,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:studentsaving/Constants/constant_colors.dart';
 import 'package:studentsaving/Pages/home_screen.dart';
+import 'package:studentsaving/Pages/resources.dart';
 
+import 'add_transaction.dart';
+import 'budget.dart';
+import 'household_expense.dart';
 import 'login.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -19,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
         const Duration(seconds: 3),
             () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (BuildContext context) => const HomeScreen())));
+            builder: (BuildContext context) => const AddTransaction())));
   }
 
   @override
