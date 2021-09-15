@@ -46,43 +46,55 @@ class _AddTransactionState extends State<AddTransaction> {
 
       ),
         child: Column(
+          mainAxisSize: MainAxisSize.max,
+
           children: [
             Container(
 
               margin: const EdgeInsets.only(top: 20),
               child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    width: width*0.3,
-                    child: TextField(
+                  Expanded(
+                    flex:2,
+                    child: Align(
+                      alignment: Alignment.bottomRight,
+                      child: Container(
+                        margin: EdgeInsets.only(top: 5, right: 13),
+                        width: width*0.25,
+                        child: TextField(
 
-                      decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.only(left: 20),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(18.0),
-                            borderSide: const BorderSide(color: Colors.white),
+                          decoration: InputDecoration(
+                              contentPadding: const EdgeInsets.only(left: 20),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(13.0),
+                                borderSide: const BorderSide(color: Colors.white),
 
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(color: Colors.white),
+                                borderRadius:  BorderRadius.circular(13.0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+
+                                borderSide: const BorderSide(color: Colors.white),
+
+                            borderRadius:  BorderRadius.circular(13.0),
                           ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.white),
-                            borderRadius:  BorderRadius.circular(18.0),
+                              fillColor: ConstantColor.WHITE,
+                              filled: true,
+                              prefixIcon: const Icon(Icons.attach_money_outlined, color: Colors.black, size: 18,),
+                              hintStyle: const TextStyle(color: ConstantColor.WHITE,fontSize: 13)
                           ),
-                          focusedBorder: OutlineInputBorder(
-
-                            borderSide: const BorderSide(color: Colors.white),
-
-                        borderRadius:  BorderRadius.circular(18.0),
-                      ),
-                          fillColor: ConstantColor.WHITE,
-                          filled: true,
-                          prefixIcon: const Icon(Icons.attach_money_outlined, color: Colors.black, size: 18,),
-                          hintStyle: const TextStyle(color: ConstantColor.WHITE,fontSize: 13)
+                        ),
                       ),
                     ),
                   ),
-                  Icon(Icons.close, color: ConstantColor.DARK_BLUE,)
+                   Expanded(
+                      flex:1,child: Align(
+                      alignment: Alignment.topRight,
+                      child: Container(
+                          padding: EdgeInsets.only(right: 20),
+                          child: const Icon(Icons.close, color: ConstantColor.DARK_BLUE, size: 35,))))
                 ],
               ),
             )
