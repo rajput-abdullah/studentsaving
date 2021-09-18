@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:studentsaving/Constants/constant_colors.dart';
+import 'package:studentsaving/Pages/login.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key key}) : super(key: key);
@@ -162,7 +163,15 @@ class _SignUpState extends State<SignUp> {
                         alignment: Alignment.centerRight,
                         child: MaterialButton(
                           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Login(),
+                              ),
+                            );
+
+                          },
                           color: ConstantColor.YELLOW,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30)),

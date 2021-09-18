@@ -1,13 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:studentsaving/Constants/constant_colors.dart';
-import 'package:studentsaving/Pages/home_screen.dart';
-import 'package:studentsaving/Pages/resources.dart';
+import 'package:studentsaving/Pages/budget_list.dart';
+import 'package:studentsaving/Pages/sign_up_screen.dart';
+import 'goals.dart';
+import 'home_screen.dart';
 
-import 'add_transaction.dart';
-import 'budget.dart';
-import 'household_expense.dart';
-import 'login.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key key}) : super(key: key);
@@ -23,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
         const Duration(seconds: 3),
             () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (BuildContext context) => const AddTransaction())));
+            builder: (BuildContext context) => const SignUp())));
   }
 
   @override

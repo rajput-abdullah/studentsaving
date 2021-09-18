@@ -2,6 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:studentsaving/Constants/constant_colors.dart';
 import 'package:studentsaving/UI/drawer.dart';
+import 'package:studentsaving/UI/nav_bar.dart';
+
+import 'add_transaction.dart';
+import 'goals.dart';
+import 'home_screen.dart';
 
 class Resources extends StatefulWidget {
   const Resources({Key key}) : super(key: key);
@@ -13,6 +18,8 @@ class Resources extends StatefulWidget {
 class _ResourcesState extends State<Resources> {
   var height;
   var width;
+  int _selectedIndex = 1;
+  var lastIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -105,9 +112,64 @@ class _ResourcesState extends State<Resources> {
           ),
         ),
       ),
+      // bottomNavigationBar: Container(
+      //   padding: const EdgeInsets.only(top: 10, bottom: 10),
+      //   decoration: const BoxDecoration(
+      //     color: ConstantColor.DARK_BLUE,
+      //   ),
+      //   child:
+      //   BottomNavigationBar(
+      //
+      //     elevation: 0,
+      //     backgroundColor: ConstantColor.DARK_BLUE,
+      //     type: BottomNavigationBarType.fixed,
+      //     selectedItemColor: ConstantColor.YELLOW,
+      //     selectedLabelStyle: const TextStyle(fontSize: 10),
+      //     unselectedFontSize: 10,
+      //     unselectedItemColor: ConstantColor.WHITE,
+      //     items: const <BottomNavigationBarItem>[
+      //       BottomNavigationBarItem(
+      //           icon: ImageIcon(AssetImage("assets/images/budgetWhite.png"),
+      //           ),
+      //           label: 'BUDGET'
+      //       ),
+      //       BottomNavigationBarItem(
+      //         icon: ImageIcon(
+      //           AssetImage("assets/images/resourcesWhite.png"),
+      //         ),
+      //         label: 'RESOURCES',
+      //
+      //       ),
+      //       BottomNavigationBarItem(
+      //         icon: ImageIcon(
+      //           AssetImage("assets/images/goalsWhite.png"),
+      //         ),
+      //         label: 'GOALS',
+      //       ),
+      //       BottomNavigationBarItem(
+      //         icon: ImageIcon(
+      //           AssetImage("assets/images/addTransaction.png"),
+      //
+      //         ),
+      //         label: 'ADD TRANSACTION',
+      //       ),
+      //     ],
+      //     currentIndex: _selectedIndex,
+      //     onTap: (index){
+      //       setState(() {
+      //         _selectedIndex = index;
+      //       });
+      //     },
+      //
+      //   ),
+      // ),
 
     );
   }
+
+
+
+
   Widget roundedBox(Color dynamicColor, String imgPath, String tabName)
   {
     return Container(

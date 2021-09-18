@@ -1,6 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:studentsaving/Constants/constant_colors.dart';
+import 'package:studentsaving/Pages/add_transaction.dart';
+import 'package:studentsaving/Pages/budget.dart';
+import 'package:studentsaving/Pages/budget_list.dart';
+import 'package:studentsaving/Pages/goals.dart';
+import 'package:studentsaving/Pages/household_expense.dart';
+import 'package:studentsaving/Pages/resources.dart';
 import 'package:studentsaving/Pages/sign_up_screen.dart';
 
 class DrawerScreen extends StatefulWidget {
@@ -47,30 +53,54 @@ class _DrawerScreenState extends State<DrawerScreen> {
               ListTile(
                 title: roundedBox(ConstantColor.YELLOW,"PROFILE"),
                 onTap: () => {
-                  const SignUp(),
-                Navigator.pop(context)
-
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const BudgetList(),
+                    ),
+                  ),
                 },
               ),
               ListTile(
                 title: roundedBox(ConstantColor.YELLOW,"EDIT BUDGET"),
-                onTap: () => const SignUp(),
+                onTap: () =>     Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const HouseHoldExpense(),
+                  ),
+                ),
               ),
               ListTile(
                 title: roundedBox(ConstantColor.YELLOW,"ADD TRANSACTION"),
-                onTap: () => const SignUp(),
+                onTap: () =>   Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AddTransaction(),
+                  ),
+                ),
+
               ),
               ListTile(
                 title: roundedBox(ConstantColor.YELLOW,"GOALS"),
-                onTap: () => const SignUp(),
+                onTap: () =>  Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Goals(),
+                  ),
+                ),
               ),
               ListTile(
                 title: roundedBox(ConstantColor.YELLOW,"RESOURCES"),
-                onTap: () => const SignUp(),
+                onTap: () =>   Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Resources(),
+                  ),
+                ),
               ),
               ListTile(
                 title: roundedBox(ConstantColor.GREY,"LOGOUT"),
-                onTap: () => const SignUp(),
+                onTap: () =>  Navigator.pop(context),
               ),
               const Center(
                 child: Text('COPYRIGHT ENACTUS NSCC IVANY CAMPUS 2021',
