@@ -68,12 +68,18 @@ class _GoalsState extends State<Goals> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  roundedBox(ConstantColor.YELLOW, "assets/goals/addGoal.png",
-                      "ADD GOAL"),
-                  roundedBox(
-                      ConstantColor.GREY,
-                      "assets/goals/trackGoalProgress.png",
-                      "TRACK GOAL PROGRESS"),
+                  GestureDetector(
+                    onTap: () => addGoal(),
+                    child: roundedBox(ConstantColor.YELLOW, "assets/goals/addGoal.png",
+                        "ADD GOAL"),
+                  ),
+                  GestureDetector(
+                    onTap: () =>trackGoal(),
+                    child: roundedBox(
+                        ConstantColor.GREY,
+                        "assets/goals/trackGoalProgress.png",
+                        "TRACK GOAL PROGRESS"),
+                  ),
                 ],
               ),
               SizedBox(
@@ -281,4 +287,318 @@ class _GoalsState extends State<Goals> {
       style: const TextStyle(fontSize: 15, color: ConstantColor.WHITE),
     );
   }
+
+
+  Future addGoal() async{
+    await showGeneralDialog(
+        context: context,
+        barrierDismissible: true,
+        barrierLabel: MaterialLocalizations.of(context)
+            .modalBarrierDismissLabel,
+        barrierColor: Colors.black45,
+        transitionDuration: const Duration(milliseconds: 200),
+        pageBuilder: (BuildContext buildContext,
+            Animation animation,
+            Animation secondaryAnimation) {
+          return Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height ,
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(50.0),
+                topRight: Radius.circular(50.0),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey,
+                  spreadRadius: 5,
+                  blurRadius: 20,
+                  offset: Offset(7, 7), // changes position of shadow
+                ),
+              ],
+            ),
+            margin: EdgeInsets.only(top: 300),
+            child: Material(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(        topLeft: Radius.circular(50.0),
+                    topRight: Radius.circular(50.0),)),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 20, right: 30),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children:  [
+                        Container(
+                            margin: EdgeInsets.only(right: 15, top: 20),
+                            child: Text("ADD NEW PAYMENT TYPE",style: TextStyle(color: Colors.black, fontSize: 18),)),
+                        IconButton(
+                          onPressed: () =>Navigator.pop(context),
+                          icon:Icon(Icons.close, size: 40,), color: ConstantColor.DARK_BLUE,)
+
+                      ],),
+
+
+                  ),
+                  SizedBox(height:height*0.01),
+                  Container(
+                      margin: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                      child:
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const SizedBox(height: 10),
+                          TextField(
+                            decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.only(left: 20),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(40.0),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:  BorderRadius.circular(40.0),
+                                ),focusedBorder: OutlineInputBorder(
+                              borderRadius:  BorderRadius.circular(40.0),
+                            ),
+                                fillColor: ConstantColor.DARK_BLUE,
+                                filled: true,
+                                suffixIcon: const Icon(Icons.keyboard_arrow_down_outlined, color: ConstantColor.PINK, size: 30,),
+                                hintText: "GOAL NAME*",
+                                hintStyle: const TextStyle(color: ConstantColor.PINK,fontSize: 13)
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          TextField(
+                            decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.only(left: 20),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(40.0),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:  BorderRadius.circular(40.0),
+                                ),focusedBorder: OutlineInputBorder(
+                              borderRadius:  BorderRadius.circular(40.0),
+                            ),
+                                fillColor: ConstantColor.DARK_BLUE,
+                                filled: true,
+                                hintText: "ACTION PLAN*",
+                                hintStyle: const TextStyle(color: ConstantColor.PINK,fontSize: 13)
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          TextField(
+                            decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.only(left: 20),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(40.0),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:  BorderRadius.circular(40.0),
+                                ),focusedBorder: OutlineInputBorder(
+                              borderRadius:  BorderRadius.circular(40.0),
+                            ),
+                                fillColor: ConstantColor.DARK_BLUE,
+                                filled: true,
+                                hintText: "AMOUNT NEEDED TO COMPLETE GOAL*",
+                                hintStyle: const TextStyle(color: ConstantColor.PINK,fontSize: 13)
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          TextField(
+                            decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.only(left: 20),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(40.0),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:  BorderRadius.circular(40.0),
+                                ),focusedBorder: OutlineInputBorder(
+                              borderRadius:  BorderRadius.circular(40.0),
+                            ),
+                                fillColor: ConstantColor.DARK_BLUE,
+                                filled: true,
+                                suffixIcon: const Icon(Icons.calendar_today_outlined, color: ConstantColor.PINK, size: 25,),
+                                hintText: "START DATE*",
+                                hintStyle: const TextStyle(color: ConstantColor.PINK,fontSize: 13)
+                            ),
+                          ),
+
+                          const SizedBox(height: 10),
+                          TextField(
+                            decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.only(left: 20),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(40.0),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:  BorderRadius.circular(40.0),
+                                ),focusedBorder: OutlineInputBorder(
+                              borderRadius:  BorderRadius.circular(40.0),
+                            ),
+                                fillColor: ConstantColor.DARK_BLUE,
+                                filled: true,
+                                suffixIcon: const Icon(Icons.calendar_today_outlined, color: ConstantColor.PINK, size: 25,),
+                                hintText: "TARGET DATE OF COMPLETION",
+                                hintStyle: const TextStyle(color: ConstantColor.PINK,fontSize: 13)
+                            ),
+                          ),
+
+
+                          const SizedBox(height: 10),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: MaterialButton(
+                              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+                              onPressed: (){
+                                Navigator.pop(
+                                    context
+                                );
+
+                              },
+                              color: ConstantColor.YELLOW,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30)),
+                              child: const Text("SUBMIT"),
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                        ],
+                      )
+                  )
+
+                ],
+              ),
+            ),
+          );
+        });
+  }
+  Future trackGoal() async{
+    await showGeneralDialog(
+        context: context,
+        barrierDismissible: true,
+        barrierLabel: MaterialLocalizations.of(context)
+            .modalBarrierDismissLabel,
+        barrierColor: Colors.black45,
+        transitionDuration: const Duration(milliseconds: 200),
+        pageBuilder: (BuildContext buildContext,
+            Animation animation,
+            Animation secondaryAnimation) {
+          return Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height ,
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(50.0),
+                topRight: Radius.circular(50.0),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey,
+                  spreadRadius: 5,
+                  blurRadius: 20,
+                  offset: Offset(7, 7), // changes position of shadow
+                ),
+              ],
+            ),
+            margin: EdgeInsets.only(top: 500),
+            child: Material(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(        topLeft: Radius.circular(50.0),
+                    topRight: Radius.circular(50.0),)),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 20, right: 30),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children:  [
+                        Container(
+                            margin: EdgeInsets.only(right: 70, top: 20),
+                            child: Text("TRACK GOAL",style: TextStyle(color: Colors.black, fontSize: 18),)),
+                        IconButton(
+                          onPressed: () =>Navigator.pop(context),
+                          icon:Icon(Icons.close, size: 40,), color: ConstantColor.DARK_BLUE,)
+
+                      ],),
+
+
+                  ),
+                  SizedBox(height:height*0.01),
+                  Container(
+                      margin: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                      child:
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const SizedBox(height: 10),
+                          TextField(
+                            decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.only(left: 20),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(40.0),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:  BorderRadius.circular(40.0),
+                                ),focusedBorder: OutlineInputBorder(
+                              borderRadius:  BorderRadius.circular(40.0),
+                            ),
+                                fillColor: ConstantColor.DARK_BLUE,
+                                filled: true,
+                                suffixIcon: const Icon(Icons.keyboard_arrow_down_outlined, color: ConstantColor.PINK, size: 30,),
+                                hintText: "GOAL NAME*",
+                                hintStyle: const TextStyle(color: ConstantColor.PINK,fontSize: 13)
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          TextField(
+                            decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.only(left: 20),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(40.0),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:  BorderRadius.circular(40.0),
+                                ),focusedBorder: OutlineInputBorder(
+                              borderRadius:  BorderRadius.circular(40.0),
+                            ),
+                                fillColor: ConstantColor.DARK_BLUE,
+                                filled: true,
+                                hintText: "AMOUNT TRACKED TOWARD GOAL*",
+                                hintStyle: const TextStyle(color: ConstantColor.PINK,fontSize: 13)
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: MaterialButton(
+                              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+                              onPressed: (){
+                                Navigator.pop(
+                                    context
+                                );
+
+                              },
+                              color: ConstantColor.YELLOW,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30)),
+                              child: const Text("SUBMIT"),
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                        ],
+                      )
+                  )
+
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
 }

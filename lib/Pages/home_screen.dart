@@ -35,7 +35,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
+
         // appBar: AppBar(
         //   leading: IconButton(
         //     onPressed: () {},

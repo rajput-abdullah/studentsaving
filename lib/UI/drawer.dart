@@ -6,6 +6,7 @@ import 'package:studentsaving/Pages/budget.dart';
 import 'package:studentsaving/Pages/budget_list.dart';
 import 'package:studentsaving/Pages/goals.dart';
 import 'package:studentsaving/Pages/household_expense.dart';
+import 'package:studentsaving/Pages/profile.dart';
 import 'package:studentsaving/Pages/resources.dart';
 import 'package:studentsaving/Pages/sign_up_screen.dart';
 
@@ -56,7 +57,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const BudgetList(),
+                      builder: (context) => const Profile(),
                     ),
                   ),
                 },

@@ -112,58 +112,6 @@ class _ResourcesState extends State<Resources> {
           ),
         ),
       ),
-      // bottomNavigationBar: Container(
-      //   padding: const EdgeInsets.only(top: 10, bottom: 10),
-      //   decoration: const BoxDecoration(
-      //     color: ConstantColor.DARK_BLUE,
-      //   ),
-      //   child:
-      //   BottomNavigationBar(
-      //
-      //     elevation: 0,
-      //     backgroundColor: ConstantColor.DARK_BLUE,
-      //     type: BottomNavigationBarType.fixed,
-      //     selectedItemColor: ConstantColor.YELLOW,
-      //     selectedLabelStyle: const TextStyle(fontSize: 10),
-      //     unselectedFontSize: 10,
-      //     unselectedItemColor: ConstantColor.WHITE,
-      //     items: const <BottomNavigationBarItem>[
-      //       BottomNavigationBarItem(
-      //           icon: ImageIcon(AssetImage("assets/images/budgetWhite.png"),
-      //           ),
-      //           label: 'BUDGET'
-      //       ),
-      //       BottomNavigationBarItem(
-      //         icon: ImageIcon(
-      //           AssetImage("assets/images/resourcesWhite.png"),
-      //         ),
-      //         label: 'RESOURCES',
-      //
-      //       ),
-      //       BottomNavigationBarItem(
-      //         icon: ImageIcon(
-      //           AssetImage("assets/images/goalsWhite.png"),
-      //         ),
-      //         label: 'GOALS',
-      //       ),
-      //       BottomNavigationBarItem(
-      //         icon: ImageIcon(
-      //           AssetImage("assets/images/addTransaction.png"),
-      //
-      //         ),
-      //         label: 'ADD TRANSACTION',
-      //       ),
-      //     ],
-      //     currentIndex: _selectedIndex,
-      //     onTap: (index){
-      //       setState(() {
-      //         _selectedIndex = index;
-      //       });
-      //     },
-      //
-      //   ),
-      // ),
-
     );
   }
 
