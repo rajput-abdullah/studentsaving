@@ -35,75 +35,77 @@ class _HouseHoldExpenseState extends State<HouseHoldExpense> {
 
         height: double.maxFinite,
         width: double.maxFinite,
-        child: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 30),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Image.asset("assets/budget/house.png"),
-                    ],
-                  ),
-                  SizedBox(height: height*.01,),
-                  const Text("HOUSEHOLD EXPENSES", style:   TextStyle(color: Colors.black, fontSize: 18),)
-                ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Image.asset("assets/budget/house.png"),
+                      ],
+                    ),
+                    SizedBox(height: height*.01,),
+                    const Text("HOUSEHOLD EXPENSES", style:   TextStyle(color: Colors.black, fontSize: 18),)
+                  ],
+                ),
               ),
-            ),
-            const Align(
-                alignment: Alignment.centerRight,
-                child:
-                Text("ENTER AMOUNT", style: TextStyle(color: ConstantColor.DARK_BLUE, fontSize: 10),)),
-            SizedBox(height: width*.02,),
-            expenseTypes("RENT"),
-            const Divider(thickness: 1,),
-            expenseTypes("MORTAGE"),
-            const Divider(thickness: 1,),
-            expenseTypes("POWER"),
-            const Divider(thickness: 1,),
+              const Align(
+                  alignment: Alignment.centerRight,
+                  child:
+                  Text("ENTER AMOUNT", style: TextStyle(color: ConstantColor.DARK_BLUE, fontSize: 10),)),
+              SizedBox(height: width*.02,),
+              expenseTypes("RENT"),
+              const Divider(thickness: 1,),
+              expenseTypes("MORTAGE"),
+              const Divider(thickness: 1,),
+              expenseTypes("POWER"),
+              const Divider(thickness: 1,),
 
-            expenseTypes("WATER"),
-            const Divider(thickness: 1,),
+              expenseTypes("WATER"),
+              const Divider(thickness: 1,),
 
-           expenseTypes("INTERNET"),
-            const Divider(thickness: 1,),
+             expenseTypes("INTERNET"),
+              const Divider(thickness: 1,),
 
-            expenseTypes("TELEPHONE"),
-            const Divider(thickness: 1,),
-            SizedBox(height: width*.02,),
+              expenseTypes("TELEPHONE"),
+              const Divider(thickness: 1,),
+              SizedBox(height: width*.02,),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                MaterialButton(
-                  minWidth: width*0.4,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  MaterialButton(
+                    minWidth: width*0.4,
 
-                  // padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 12),
-                  onPressed: (){},
-                  color: ConstantColor.GREY,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                  child: const Text("ADD NEW EXPENSE", style: TextStyle(fontSize: 10, color: ConstantColor.DARK_BLUE),),
-                ),
-                MaterialButton(
-                        minWidth: width*0.4,
-                  // padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 12),
-                  onPressed: (){},
-                  color: ConstantColor.GREY,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                  child: const Text("SAVE", style: TextStyle(fontSize: 10, color: ConstantColor.DARK_BLUE)),
-                ),
-              ],
-            )
+                    // padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 12),
+                    onPressed: (){},
+                    color: ConstantColor.GREY,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                    child: const Text("ADD NEW EXPENSE", style: TextStyle(fontSize: 10, color: ConstantColor.DARK_BLUE),),
+                  ),
+                  MaterialButton(
+                          minWidth: width*0.4,
+                    // padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 12),
+                    onPressed: (){},
+                    color: ConstantColor.GREY,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                    child: const Text("SAVE", style: TextStyle(fontSize: 10, color: ConstantColor.DARK_BLUE)),
+                  ),
+                ],
+              )
 
 
-          ],
+            ],
+          ),
         ),
       ),
     );

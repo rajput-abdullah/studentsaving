@@ -543,51 +543,48 @@ class _AddTransactionState extends State<AddTransaction> {
   }
 
 
-  Future addNew() async{
-    await showGeneralDialog(
-        context: context,
-        barrierDismissible: true,
-        barrierLabel: MaterialLocalizations.of(context)
-            .modalBarrierDismissLabel,
-        barrierColor: Colors.black45,
-        transitionDuration: const Duration(milliseconds: 200),
-        pageBuilder: (BuildContext buildContext,
-            Animation animation,
-            Animation secondaryAnimation) {
-          return Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height ,
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(50.0),
-                topRight: Radius.circular(50.0),
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey,
-                  spreadRadius: 5,
-                  blurRadius: 20,
-                  offset: Offset(7, 7), // changes position of shadow
+  Future addNew() async
+  {
+    await showDialog<void>(
+      barrierDismissible: true,
+      // useSafeArea: true,
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          backgroundColor: Colors.transparent,
+
+          insetPadding:EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child:Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height*0.35,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(50.0),
+                  topRight: Radius.circular(50.0),
                 ),
-              ],
-            ),
-            margin: EdgeInsets.only(top: 420),
-            child: Material(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(        topLeft: Radius.circular(50.0),
-                    topRight: Radius.circular(50.0),)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey,
+                    spreadRadius: 5,
+                    blurRadius: 20,
+                    offset: Offset(7, 7), // changes position of shadow
+                  ),
+                ],
+              ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
 
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: 20, right: 30),
+                    margin: EdgeInsets.only(top: 15, right: 30),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children:  [
                         Container(
-                            margin: EdgeInsets.only(right: 15, top: 20),
+                            margin: EdgeInsets.only(right: 15, top: 10),
                             child: Text("ADD NEW PAYMENT TYPE",style: TextStyle(color: Colors.black, fontSize: 18),)),
                         IconButton(
                           onPressed: () =>Navigator.pop(context),
@@ -597,78 +594,210 @@ class _AddTransactionState extends State<AddTransaction> {
 
 
                   ),
-                 SizedBox(height:height*0.05),
-                 Container(
-                   margin: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-                   child:
-                     Column(
-                       mainAxisAlignment: MainAxisAlignment.center,
-                       children: [
-                         const SizedBox(height: 10),
-                         TextField(
-                           decoration: InputDecoration(
-                               contentPadding: const EdgeInsets.only(left: 20),
-                               border: OutlineInputBorder(
-                                 borderRadius: BorderRadius.circular(40.0),
-                               ),
-                               enabledBorder: OutlineInputBorder(
-                                 borderRadius:  BorderRadius.circular(40.0),
-                               ),focusedBorder: OutlineInputBorder(
-                             borderRadius:  BorderRadius.circular(40.0),
-                           ),
-                               fillColor: ConstantColor.DARK_BLUE,
-                               filled: true,
-                               hintText: "NAME OF PAYMENT*",
-                               hintStyle: const TextStyle(color: ConstantColor.PINK,fontSize: 13)
-                           ),
-                         ),
-                         const SizedBox(height: 10),
-                         TextField(
-                           decoration: InputDecoration(
-                               contentPadding: const EdgeInsets.only(left: 20),
-                               border: OutlineInputBorder(
-                                 borderRadius: BorderRadius.circular(40.0),
-                               ),
-                               enabledBorder: OutlineInputBorder(
-                                 borderRadius:  BorderRadius.circular(40.0),
-                               ),focusedBorder: OutlineInputBorder(
-                             borderRadius:  BorderRadius.circular(40.0),
-                           ),
-                               fillColor: ConstantColor.DARK_BLUE,
-                               filled: true,
-                               suffixIcon: const Icon(Icons.keyboard_arrow_down_outlined, color: ConstantColor.WHITE, size: 30,),
-                               hintText: "CATEGORY TYPE",
-                               hintStyle: const TextStyle(color: ConstantColor.PINK,fontSize: 13)
-                           ),
-                         ),
-                         const SizedBox(height: 10),
-                         Align(
-                           alignment: Alignment.centerRight,
-                           child: MaterialButton(
-                             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
-                             onPressed: (){
-                               Navigator.pop(
-                                   context
-                               );
+                  SizedBox(height:height*0.02),
+                  Container(
+                      margin: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                      child:
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const SizedBox(height: 10),
+                          TextField(                            style: TextStyle(color: Colors.white),
 
-                             },
-                             color: ConstantColor.YELLOW,
-                             shape: RoundedRectangleBorder(
-                                 borderRadius: BorderRadius.circular(30)),
-                             child: const Text("SUBMIT"),
-                           ),
-                         ),
-                         const SizedBox(height: 20),
-                       ],
-                     )
-                 )
+
+                            decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.only(left: 20),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(40.0),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:  BorderRadius.circular(40.0),
+                                ),focusedBorder: OutlineInputBorder(
+                              borderRadius:  BorderRadius.circular(40.0),
+                            ),
+                                fillColor: ConstantColor.DARK_BLUE,
+                                filled: true,
+                                hintText: "NAME OF PAYMENT*",
+                                hintStyle: const TextStyle(color: ConstantColor.PINK,fontSize: 13)
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          TextField(
+                            style: TextStyle(color: Colors.white),
+
+                            decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.only(left: 20),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(40.0),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:  BorderRadius.circular(40.0),
+                                ),focusedBorder: OutlineInputBorder(
+                              borderRadius:  BorderRadius.circular(40.0),
+                            ),
+                                fillColor: ConstantColor.DARK_BLUE,
+                                filled: true,
+                                suffixIcon: const Icon(Icons.keyboard_arrow_down_outlined, color: ConstantColor.WHITE, size: 30,),
+                                hintText: "CATEGORY TYPE",
+                                hintStyle: const TextStyle(color: ConstantColor.PINK,fontSize: 13)
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: MaterialButton(
+                              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+                              onPressed: (){
+                                Navigator.pop(
+                                    context
+                                );
+
+                              },
+                              color: ConstantColor.YELLOW,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30)),
+                              child: const Text("SUBMIT"),
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                        ],
+                      )
+                  )
 
                 ],
               ),
             ),
-          );
-        });
+          ),
+        );
+      },
+    );
   }
+  // Future addNew() async{
+  //   await showGeneralDialog(
+  //       context: context,
+  //       barrierDismissible: true,
+  //       barrierLabel: MaterialLocalizations.of(context)
+  //           .modalBarrierDismissLabel,
+  //       barrierColor: Colors.black45,
+  //       transitionDuration: const Duration(milliseconds: 200),
+  //       pageBuilder: (BuildContext buildContext,
+  //           Animation animation,
+  //           Animation secondaryAnimation) {
+  //         return Container(
+  //           width: MediaQuery.of(context).size.width,
+  //           height: MediaQuery.of(context).size.height ,
+  //           decoration: const BoxDecoration(
+  //             color: Colors.white,
+  //             borderRadius: BorderRadius.only(
+  //               topLeft: Radius.circular(50.0),
+  //               topRight: Radius.circular(50.0),
+  //             ),
+  //             boxShadow: [
+  //               BoxShadow(
+  //                 color: Colors.grey,
+  //                 spreadRadius: 5,
+  //                 blurRadius: 20,
+  //                 offset: Offset(7, 7), // changes position of shadow
+  //               ),
+  //             ],
+  //           ),
+  //           margin: EdgeInsets.only(top: 420),
+  //           child: Material(
+  //             shape: RoundedRectangleBorder(
+  //                 borderRadius: BorderRadius.only(        topLeft: Radius.circular(50.0),
+  //                   topRight: Radius.circular(50.0),)),
+  //             child: Column(
+  //               mainAxisAlignment: MainAxisAlignment.start,
+  //
+  //               children: [
+  //                 Container(
+  //                   margin: EdgeInsets.only(top: 20, right: 30),
+  //                   child: Row(
+  //                     mainAxisAlignment: MainAxisAlignment.end,
+  //                     children:  [
+  //                       Container(
+  //                           margin: EdgeInsets.only(right: 15, top: 20),
+  //                           child: Text("ADD NEW PAYMENT TYPE",style: TextStyle(color: Colors.black, fontSize: 18),)),
+  //                       IconButton(
+  //                         onPressed: () =>Navigator.pop(context),
+  //                         icon:Icon(Icons.close, size: 40,), color: ConstantColor.DARK_BLUE,)
+  //
+  //                     ],),
+  //
+  //
+  //                 ),
+  //                 SizedBox(height:height*0.05),
+  //                 Container(
+  //                  margin: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+  //                  child:
+  //                    Column(
+  //                      mainAxisAlignment: MainAxisAlignment.center,
+  //                      children: [
+  //                        const SizedBox(height: 10),
+  //                        TextField(
+  //                          decoration: InputDecoration(
+  //                              contentPadding: const EdgeInsets.only(left: 20),
+  //                              border: OutlineInputBorder(
+  //                                borderRadius: BorderRadius.circular(40.0),
+  //                              ),
+  //                              enabledBorder: OutlineInputBorder(
+  //                                borderRadius:  BorderRadius.circular(40.0),
+  //                              ),focusedBorder: OutlineInputBorder(
+  //                            borderRadius:  BorderRadius.circular(40.0),
+  //                          ),
+  //                              fillColor: ConstantColor.DARK_BLUE,
+  //                              filled: true,
+  //                              hintText: "NAME OF PAYMENT*",
+  //                              hintStyle: const TextStyle(color: ConstantColor.PINK,fontSize: 13)
+  //                          ),
+  //                        ),
+  //                        const SizedBox(height: 10),
+  //                        TextField(
+  //                          decoration: InputDecoration(
+  //                              contentPadding: const EdgeInsets.only(left: 20),
+  //                              border: OutlineInputBorder(
+  //                                borderRadius: BorderRadius.circular(40.0),
+  //                              ),
+  //                              enabledBorder: OutlineInputBorder(
+  //                                borderRadius:  BorderRadius.circular(40.0),
+  //                              ),focusedBorder: OutlineInputBorder(
+  //                            borderRadius:  BorderRadius.circular(40.0),
+  //                          ),
+  //                              fillColor: ConstantColor.DARK_BLUE,
+  //                              filled: true,
+  //                              suffixIcon: const Icon(Icons.keyboard_arrow_down_outlined, color: ConstantColor.WHITE, size: 30,),
+  //                              hintText: "CATEGORY TYPE",
+  //                              hintStyle: const TextStyle(color: ConstantColor.PINK,fontSize: 13)
+  //                          ),
+  //                        ),
+  //                        const SizedBox(height: 10),
+  //                        Align(
+  //                          alignment: Alignment.centerRight,
+  //                          child: MaterialButton(
+  //                            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+  //                            onPressed: (){
+  //                              Navigator.pop(
+  //                                  context
+  //                              );
+  //
+  //                            },
+  //                            color: ConstantColor.YELLOW,
+  //                            shape: RoundedRectangleBorder(
+  //                                borderRadius: BorderRadius.circular(30)),
+  //                            child: const Text("SUBMIT"),
+  //                          ),
+  //                        ),
+  //                        const SizedBox(height: 20),
+  //                      ],
+  //                    )
+  //                )
+  //
+  //               ],
+  //             ),
+  //           ),
+  //         );
+  //       });
+  // }
 
   Widget staticText(String text) {
     return Text(
