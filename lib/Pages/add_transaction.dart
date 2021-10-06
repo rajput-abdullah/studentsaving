@@ -217,7 +217,7 @@ class _AddTransactionState extends State<AddTransaction> {
                 ),
               ],
             ),
-            margin: EdgeInsets.only(top: 150),
+            // margin: EdgeInsets.only(top: 150),
             child: Material(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(        topLeft: Radius.circular(50.0),
@@ -558,7 +558,7 @@ class _AddTransactionState extends State<AddTransaction> {
             alignment: Alignment.bottomCenter,
             child:Container(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height*0.35,
+              height: MediaQuery.of(context).size.height*0.40,
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
